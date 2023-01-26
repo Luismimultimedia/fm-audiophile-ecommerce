@@ -1,8 +1,5 @@
 <script setup>
-console.log('god');
-function hola() {
-    console.log('');
-}
+console.log();
 </script>
 
 <template>
@@ -18,6 +15,7 @@ function hola() {
     <p class="text-input">text-input</p>
     <p class="text-input-placement">text-input-placement</p>
     <p class="text-body">text-body</p>
+    <img src="/assets/cart/image-xx59-headphones.jpg" alt="product" />
 </template>
 
 <style lang="scss" scoped>

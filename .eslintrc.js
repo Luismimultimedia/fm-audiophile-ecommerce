@@ -14,7 +14,14 @@ module.exports = {
     },
     rules: {
         // override/add rules settings here, such as:
-        quotes: ['error', 'single'],
-        indent: ['error', 4],
+        'quotes': ['error', 'single'],
+        'indent': ['error', 4],
+        'vue/multi-word-component-names': 0,
+        'prettier/prettier': [
+            'error',
+            {
+                endOfLine: 'auto',
+            },
+        ],
     },
 };

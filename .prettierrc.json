@@ -12,5 +12,6 @@
   "arrow-body-style": 0,
   "prefer-arrow-callback": 0,
   "proseWrap": "never",
-  "quoteProps": "consistent"
+  "quoteProps": "consistent",
+  "endOfLine":"auto"
 }

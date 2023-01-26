@@ -97,6 +97,15 @@ $font-family-default: manrope, Arial, Helvetica, sans-serif;
 @mixin text-body {
     font-family: $font-family-default;
     font-weight: 500;
-    size: 1.5rem;
+    font-size: 1.5rem;
     line-height: 2.5rem;
+}
+
+@mixin text-navigation {
+    font-family: $font-family-default;
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.2rem;
+    text-decoration: none;
 }
