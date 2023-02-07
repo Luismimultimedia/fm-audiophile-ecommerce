@@ -1,0 +1,44 @@
+{
+    "extends": [
+        // add more generic rulesets here, such as:
+        "plugin:vue/vue3-recommended",
+        "@vue/eslint-config-airbnb"
+    ],
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "comma-dangle": [
+            "error",
+            {
+                "arrays": "always-multiline",
+                "objects": "always-multiline",
+                "imports": "always-multiline",
+                "exports": "always-multiline",
+                "functions": "always-multiline"
+            }
+        ],
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": true
+            }
+        ],
+        "vue/require-component-is": 0,
+        "vue/no-v-html": 0,
+        "vue/no-v-text-v-html-on-component": 0,
+        "import/no-unresolved": 0,
+        "no-restricted-exports": 0,
+        "vue/multi-word-component-names": 0,
+        "vue/singlelines-html-element-content-newline": 0,
+        "no-unsafe-optional-chaining": 0,
+        "no-restricted-imports": 0,
+        "vue/no-child-content": 0,
+        "linebreak-style": ["error", "windows"]
+    },
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    }
+}
