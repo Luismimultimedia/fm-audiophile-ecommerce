@@ -1,24 +1,58 @@
 <script>
+import { reactive, computed } from 'vue';
 import ButtonComponent from '../Button/Button.vue';
+import HeroComponent from './Hero/Hero.vue';
 
 export default {
   name: 'HeaderComponent',
   components: {
     ButtonComponent,
+    HeroComponent,
   },
   setup() {
+    // data
+    const heroData = reactive({
+      eyebrow: 'New product',
+      heading: 'XX99 Mark II Headphones',
+      body: 'Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.',
+      cta: {
+        text: 'See Product',
+        target: '/home',
+      },
+    });
+
+    // computed
+    const hasCompletedData = computed(() => {
+      const isCompletedHero = !!(
+        heroData?.eyebrow
+        && heroData?.body
+        && heroData?.cta?.text
+        && heroData?.cta?.target
+      );
+      return isCompletedHero;
+    });
+
+    const wrapperClasses = computed(() => {
+      const hasBackground = hasCompletedData.value ? 'header--with-background' : '';
+      return ['header', hasBackground];
+    });
+
+    // Methods
     const openCart = () => {
       console.log('Hola mundo');
     };
     return {
+      heroData,
       openCart,
+      wrapperClasses,
+      hasCompletedData,
     };
   },
 };
 </script>
 
 <template>
-  <header class="header">
+  <header :class="wrapperClasses">
     <nav class="header__navigation-container">
       <ButtonComponent
         class="header__menu-icon"
@@ -44,6 +78,12 @@ export default {
         </template>
       </ButtonComponent>
     </nav>
+    <div class="header__hero">
+      <HeroComponent
+        v-bind="heroData"
+        :has-background="hasCompletedData"
+      />
+    </div>
     <section class="header_hero" />
   </header>
 </template>
@@ -59,6 +99,26 @@ export default {
         padding: 24px;
     }
 
+    &--with-background {
+      background-image: url('/assets/home/mobile/image-header.jpg ');
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      @media (min-width: 768px) {
+        background-image: url('/assets/home/tablet/image-header.jpg ');
+      }
+
+      @media (min-width: 1024px) {
+        background-image: url('/assets/home/desktop/image-hero.jpg ');
+      }
+
+      .header__hero {
+        @include container;
+        margin-top: 128px;
+        margin-bottom: 158px;
+      }
+    }
+
     &__menu-icon {
         @media (min-width: 992px) {
             display: none;
@@ -70,6 +130,8 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-bottom: 24px;
+        border-bottom: 1px solid #979797;
     }
 
     &__navigation-list {
@@ -94,6 +156,10 @@ export default {
         @media (min-width: 426px) and (max-width: 991px) {
             flex-grow: 1;
         }
+    }
+
+    &__hero {
+        
     }
 }
 </style>
