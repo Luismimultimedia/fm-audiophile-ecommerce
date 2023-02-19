@@ -157,9 +157,5 @@ export default {
             flex-grow: 1;
         }
     }
-
-    &__hero {
-        
-    }
 }
 </style>
